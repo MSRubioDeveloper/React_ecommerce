@@ -14,10 +14,9 @@ export const ECommerce = () => {
           const data = await response.json();
           
           const token = data.csrf_token;
-          console.log( token)
        
           //localstorage token
-          localStorage.setItem("csrf", token)
+          localStorage.setItem("csrf", "3VrrSDOXYAZIJ47Ulu73c5R95ciK9M4Zx7Hj3avE")
     
           console.log('Token CSRF obtenido:', token);
         }catch( error){

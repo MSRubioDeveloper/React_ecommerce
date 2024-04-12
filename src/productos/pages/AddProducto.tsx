@@ -24,22 +24,26 @@ const postProducto = ( producto: Producto) =>{
 export const AddProducto = () => {
 
   const [formData, setFormData] = useState<Producto>({
-    Nombre: ""
+    Nombre: "",
     SKU: "",
-    calificacion: "",
-    categorias_id: "",
+    calificacion: 0,
+    categorias_id: 1,
     imagen: "",
-    stock: "",
+    stock: 176,
     _token: localStorage.getItem("csrf")
   });
 
    // Maneja el envío del formulario
    const handleSubmit = (event: any) => {
     event.preventDefault(); 
-    // postProducto( formData );
     console.log( formData)
-   
-    
+    const data = {
+      ...formData
+    }
+    const productRespone =  postProducto( data );
+
+    console.log( productRespone)
+
   };
 
   const handleChange = (event: any) => {
@@ -64,16 +68,63 @@ export const AddProducto = () => {
           onChange={handleChange}
         />
       </div>
+
       <div>
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="SKU">SKU:</label>
         <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
+          type="text"
+          id="SKU"
+          name="SKU"
+          value={formData.SKU}
           onChange={handleChange}
         />
       </div>
+
+      <div>
+        <label htmlFor="calificacion">Calificacion:</label>
+        <input
+          type="text"
+          id="calificacion"
+          name="calificacion"
+          value={formData.calificacion}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="categorias_id">Categoria ID:</label>
+        <input
+          type="text"
+          id="categorias_id"
+          name="categorias_id"
+          value={formData.categorias_id}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="imagen">imagen:</label>
+        <input
+          type="text"
+          id="imagen"
+          name="imagen"
+          value={formData.imagen}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="stock">stock:</label>
+        <input
+          type="text"
+          id="stock"
+          name="stock"
+          value={formData.stock}
+          onChange={handleChange}
+        />
+      </div>
+
+
       <button type="submit">Enviar</button>
     </form>
     </>
