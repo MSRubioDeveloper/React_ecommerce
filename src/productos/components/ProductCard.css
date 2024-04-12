@@ -1,0 +1,24 @@
+#card{
+
+    margin-right: 50px;
+    margin-top: 70px;
+    
+}
+
+#card-container{
+    display: flex;
+    margin: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#btn-buy{
+    margin-top: 20px;
+    width: 100px;
+}
+
+#btn-buy-container{
+
+    display: flex;
+    justify-content: flex-end;
+}
